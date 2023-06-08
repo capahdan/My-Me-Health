@@ -1,5 +1,5 @@
 const db = require("../models");
-const VehicleBrands = db.vehicle_brands;
+const Questions = db.questions;
 const Op = db.Sequelize.Op;
 
 const getPagination = (page, size) => {
@@ -10,33 +10,26 @@ const getPagination = (page, size) => {
 };
 
 const getPagingData = (data,limit,offset) => {
-  const { count: totalItems, rows: vehicle_brands } = data;
+  const { count: totalItems, rows: questions } = data;
   
-  return { total:totalItems, data:{vehicle_brands}, limit, skip:offset };
+  return { total:totalItems, data:{questions}, limit, skip:offset };
 };
 
 
 // Retrieve all VehicleBrand from the database.
 exports.findAll = (req, res) => {
-  const name = req.query.name;
-  const country = req.query.country;
+  const question = req.query.question;
+
   const { page, size } = req.query;
 
   const {limit, offset} = getPagination(page, size);
   let condition = null
 
-  if (name && country) {
-    condition = { 
-      name: { [Op.iLike]: `%${name}%` },
-      country: { [Op.iLike]: `%${country}%` }
-    };
-  } else if (name) {
-    condition = { name: { [Op.iLike]: `%${name}%` } };
-  } else if (country) {
-    condition = { country: { [Op.iLike]: `%${country}%` } };
+  if (question) {
+    condition = { question: { [Op.iLike]: `%${question}%` } };
   }
 
-  VehicleBrands.findAndCountAll({ where: condition, limit, offset })
+  Questions.findAndCountAll({ where: condition, limit, offset })
     .then(data => {
       const response = getPagingData(data, limit, offset);
       res.send(response);
@@ -44,109 +37,108 @@ exports.findAll = (req, res) => {
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving tutorials."
+          err.message || "Some error occurred while retrieving questions."
       });
     });
 };
 
-// Create and Save a new VehicleBrands
+// Create and Save a new Questions
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.name) {
+  if (!req.body.question) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
     return;
   }
 
-  // Create a VehicleBrands
+  // Create a Questions
   const tutorial = {
-    name: req.body.name,
-    country: req.body.country,
+    question: req.body.question,
   };
 
-  // Save VehicleBrands in the database
-  VehicleBrands.create(tutorial)
-    .then(vehicle_brands => {
+  // Save Questions in the database
+  Questions.create(tutorial)
+    .then(questions => {
       res.send(
-        { message: "VehicleBrand was Created successfully!" ,data:{vehicle_brands}});
+        { message: "VehicleBrand was Created successfully!" ,data:{questions}});
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the VehicleBrands."
+          err.message || "Some error occurred while creating the Questions."
       });
     });
 };
 
-// Find a single VehicleBrands with an id
+// Find a single Questions with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  VehicleBrands.findByPk(id)
+  Questions.findByPk(id)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error retrieving VehicleBrands with id=" + id
+        message: "Error retrieving Questions with id=" + id
       });
     });
 };
 
-// Update a VehicleBrands by the id in the request
+// Update a Questions by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  VehicleBrands.update(req.body, {
+  Questions.update(req.body, {
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "VehicleBrands was updated successfully."
+          message: "Questions was updated successfully."
         });
       } else {
         res.send({
-          message: `Cannot update VehicleBrands with id=${id}. Maybe VehicleBrands was not found or req.body is empty!`
+          message: `Cannot update Questions with id=${id}. Maybe Questions was not found or req.body is empty!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Error updating VehicleBrands with id=" + id
+        message: "Error updating Questions with id=" + id
       });
     });
 };
 
-// Delete a VehicleBrands with the specified id in the request
+// Delete a Questions with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
-  VehicleBrands.destroy({
+  Questions.destroy({
     where: { id: id }
   })
     .then(num => {
       if (num == 1) {
         res.send({
-          message: "VehicleBrands was deleted successfully!"
+          message: "Questions was deleted successfully!"
         });
       } else {
         res.send({
-          message: `Cannot delete VehicleBrands with id=${id}. Maybe VehicleBrands was not found!`
+          message: `Cannot delete Questions with id=${id}. Maybe Questions was not found!`
         });
       }
     })
     .catch(err => {
       res.status(500).send({
-        message: "Could not delete VehicleBrands with id=" + id
+        message: "Could not delete Questions with id=" + id
       });
     });
 };
 
 // Delete all Tutorials from the database.
 exports.deleteAll = (req, res) => {
-  VehicleBrands.destroy({
+  Questions.destroy({
     where: {},
     truncate: false
   })

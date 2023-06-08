@@ -12,6 +12,14 @@ module.exports = (sequelize, Sequelize) => {
     phone_number:{
       type: Sequelize.INTEGER
     },
+    birth_date:{
+      type: Sequelize.DATE 
+    },
+    gender:{
+      type: Sequelize.ENUM({
+        values:['male','female']
+      })
+    },
     is_admin: {
       type: Sequelize.BOOLEAN
     }

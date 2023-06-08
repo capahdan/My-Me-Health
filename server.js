@@ -33,7 +33,8 @@ db.sequelize.sync()
 // routes
 require('./src/routes/auth.routes')(app);
 require('./src/routes/user.routes')(app);
-require("./src/routes/vehicle_brands.routes")(app);
+require("./src/routes/articles.routes")(app);
+require("./src/routes/questions.routes")(app);
 
 
 // set port, listen for requests
