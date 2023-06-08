@@ -3,6 +3,7 @@ module.exports = app => {
     const { authJwt } = require("../middleware/index.js");
     var router = require("express").Router();
 
+    app.use("/api/questions", router);
     router.post("/",[authJwt.verifyToken, authJwt.isAdmin], questions.create);
     router.get("/",[authJwt.verifyToken], questions.findAll);
     router.get("/:id", [authJwt.verifyToken], questions.findOne);
