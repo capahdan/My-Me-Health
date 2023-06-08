@@ -33,7 +33,7 @@ isAdmin = (req, res, next) => {
         message: "Require Admin Role!"
       });
       return;
-    })
+    }).catch(err => {res.status(500).send({ message: "please register first "+err.message })});
 };
 
 const authJwt = {

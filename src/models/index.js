@@ -29,20 +29,27 @@ db.articles = require("../models/articles.model.js")(sequelize, Sequelize);
 db.answers = require("../models/answers.model.js")(sequelize, Sequelize);
 
 // Relasi antar user dan articles yaitu one to many
-db.articles.hasMany(db.user,{
+db.user.hasMany(db.articles,{
   foreignKey: "user_id",
 });
-db.user.belongsTo(db.articles,{
+db.articles.belongsTo(db.user,{
   foreignKey: "user_id",
 });
 
 // Relasi antar user dan answers yaitu one to many
-db.answers.hasMany(db.user,{
+db.user.hasMany(db.answers,{
   foreignKey: "user_id",
 });
-db.user.belongsTo(db.answers,{
+db.answers.belongsTo(db.user,{
   foreignKey: "user_id",
 });
 
+// // Relasi antar vehicle_brands dan vehicle_types yaitu one to many
+// db.vehicle_brands.hasMany(db.vehicle_types,{
+//   foreignKey: "brand_id",
+// });
+// db.vehicle_types.belongsTo(db.vehicle_brands,{
+//   foreignKey: "brand_id",
+// });
 
 module.exports = db;

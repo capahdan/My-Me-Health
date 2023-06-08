@@ -51,7 +51,7 @@ exports.findAll = (req, res) => {
 // Create and Save a new Answers
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
+  if (!req.body.answers) {
     res.status(400).send({
       message: "Content can not be empty!"
     });
@@ -69,7 +69,7 @@ exports.create = (req, res) => {
   Answers.create(answer)
     .then(answers => {
       res.send(
-        { message: "VehicleBrand was Created successfully!" ,data:{answers}});
+        { message: "Answer was Created successfully!" ,data:{answers}});
     })
     .catch(err => {
       res.status(500).send({

@@ -61,7 +61,7 @@ exports.create = (req, res) => {
   Questions.create(tutorial)
     .then(questions => {
       res.send(
-        { message: "VehicleBrand was Created successfully!" ,data:{questions}});
+        { message: "Question was Created successfully!" ,data:{questions}});
     })
     .catch(err => {
       res.status(500).send({
