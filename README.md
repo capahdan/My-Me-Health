@@ -10,7 +10,7 @@
 | Fadhil Prawira | A166DKX3875 | Github |
 
 ## Branches
-| Mechine Learning | Mobile Development | Cloud Computing |
+| Machine Learning | Mobile Development | Cloud Computing |
 | ------ | ------ | ------- |
 |  |  | [CC Branch](https://github.com/capahdan/myme-backend.git) |
 
