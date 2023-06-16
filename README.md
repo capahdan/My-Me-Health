@@ -9,10 +9,12 @@
 | Ashaddam Agashi Amura Dese | M151DSX3110 | Github |
 | Fadhil Prawira | A166DKX3875 | Github |
 
-## Branches
-| Machine Learning | Mobile Development | Cloud Computing |
-| ------ | ------ | ------- |
-|  |  | [CC Branch](https://github.com/capahdan/myme-backend.git) |
+## Repositories
+|    Branch Name     |                                      Branch Link                                         |
+| :----------------: | :--------------------------------------------------------------------------------------: |
+| Machine Learning | [ML Branch](https://github.com/capahdan/My-Me-Health/tree/ML-branch) |
+|  Cloud Computing   | [CC Branch](https://github.com/capahdan/My-Me-Health/tree/main) |
+|  Mobile Development | MD Branch |
 
 # MyMe Health App
 The MyMe-Health application is created to allow users to detect mental health problems through the mobile application they use. By taking the test, users will get results related to their mental health, through the application that we have created, users will take The Patient Health Questionnaire-9 (PHQ-9) mental health test.
@@ -35,20 +37,24 @@ Mental health issues have become an important issue today. Many cases of mental 
 
 
 # Cloud Computing Documentation
-## 1. 
-
-## 2. Setup Google Cloud
+## 1. Setup Google Cloud
 - Enable Cloud Run and Cloud Build API
 
-## 3. Clone this Project
+## 2. Clone this Project
+```
 git clone https://github.com/capahdan/My-Me-Health.git
 cd My-Me-Health
-
-## 4. Build Container and Upload To Google Container Registry
+```
+## 3. Build Container and Upload To Google Container Registry
+```
 gcloud builds submit   --tag gcr.io/$GOOGLE_CLOUD_PROJECT/myme-health:0.1
-## 5. Deploy using Cloud Run
- gcloud run deploy my-me-api   --image gcr.io/$GOOGLE_CLOUD_PROJECT/myme-health:0.1   --platform managed   --region asia-southeast2   --allow-unauthenticated   --max-instances=2
- ## 6. Test
+```
+## 4. Deploy using Cloud Run
+```
+gcloud run deploy my-me-api   --image gcr.io/$GOOGLE_CLOUD_PROJECT/myme-health:0.1   --platform managed   --region asia-southeast2   --allow-unauthenticated   --max-instances=2
+```
+
+## 5. Test
     curl the link that you get from the previous step
 
 
