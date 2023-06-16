@@ -40,15 +40,16 @@ Mental health issues have become an important issue today. Many cases of mental 
 ## 2. Setup Google Cloud
 - Enable Cloud Run and Cloud Build API
 
-## 3.
+## 3. Clone this Project
+git clone https://github.com/capahdan/My-Me-Health.git
+cd My-Me-Health
 
-## 4. 
-
-## 5. Cloud Build & Deploy
- -
- -
- 
+## 4. Build Container and Upload To Google Container Registry
+gcloud builds submit   --tag gcr.io/$GOOGLE_CLOUD_PROJECT/myme-health:0.1
+## 5. Deploy using Cloud Run
+ gcloud run deploy my-me-api   --image gcr.io/$GOOGLE_CLOUD_PROJECT/myme-health:0.1   --platform managed   --region asia-southeast2   --allow-unauthenticated   --max-instances=2
  ## 6. Test
+    curl the link that you get from the previous step
 
 
 
