@@ -20,6 +20,7 @@
 - Project Brief: [Dokumen]( )
 
 - Final Presentation:  [Presentation]( )
+- link Youtube presentation:
 
 # MyMe Health App
 The MyMe-Health application is created to allow users to detect mental health problems through the mobile application they use. By taking the test, users will get results related to their mental health, through the application that we have created, users will take The Patient Health Questionnaire-9 (PHQ-9) mental health test.
@@ -75,6 +76,10 @@ gcloud run deploy my-me-api   --image gcr.io/$GOOGLE_CLOUD_PROJECT/myme-health:0
 
 ## 5. Test
     curl the link that you get from the previous step
+ ## Deployment Link
+[API deployment](https://my-me-api-7qon5jxieq-et.a.run.app)
+ ## API Documentation Enpoint:
+API Documentation Enpoint : [Endpoint](https://my-me-api-7qon5jxieq-et.a.run.app/docs)
 
 
 
