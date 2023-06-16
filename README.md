@@ -1,13 +1,13 @@
 # Capstone Project ID	: C23-PC650
 ## Team Member
-| Name | Bangkit-ID | Github-Profile |
-| ------ | ------ | ------- |
-| Daniel Reinhard Capah | C130DSX0636 | [Github](https://github.com/capahdan) |
-| Rinda Ismawati | C372DSY0852 | [Github](https://github.com/Rinda27) |
-| Priskila | M295DSY1784 | [Github](https://github.com/KaylaGs) |
-| David Vijanarco Martal | M013DSX1588 | Github |
-| Ashaddam Agashi Amura Dese | M151DSX3110 | Github |
-| Fadhil Prawira | A166DKX3875 | Github |
+| Name | Bangkit-ID | Learning Path | Github-Profile |
+| ------ | ------ | ------- | ------- |
+| Daniel Reinhard Capah | C130DSX0636 | Cloud Computing | [Github](https://github.com/capahdan) |
+| Rinda Ismawati | C372DSY0852 | Cloud Computing | [Github](https://github.com/Rinda27) |
+| Priskila | M295DSY1784 | Machine Learning | [Github](https://github.com/KaylaGs) |
+| David Vijanarco Martal | M013DSX1588 | Machine Learning  | Github |
+| Ashaddam Agashi Amura Dese | M151DSX3110 | Machine Learning | Github |
+| Fadhil Prawira | A166DKX3875| Mobile Development | Github |
 
 ## Repositories
 |    Branch Name     |                                      Branch Link                                         |
